@@ -20,6 +20,8 @@ jobs:
     defaults:
       run:
         working-directory: ./MaratonaSlides
+    env:
+        NODE_OPTIONS: --max-old-space-size=409
     steps:
       - uses: actions/checkout@v4
 
@@ -38,12 +40,10 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
-        
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./MaratonaSlides/dist
+      
 
   deploy:
     environment:
