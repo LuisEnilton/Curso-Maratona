@@ -3,7 +3,6 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
 title: Introdução a Maratona e a C++
 info: |
@@ -81,19 +80,8 @@ layoutClass: gap-16
 
 # Sumário da Aula
 
-You can use the `Toc` component to generate a table of contents for your slides:
+<Toc text-sm minDepth="1" maxDepth="2" columns=2  />
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
 ---
 
 # Estrutura básica
@@ -154,8 +142,9 @@ Notes can also sync with clicks
 
 
 ---
+title: Entrada e Saida
+---
 
-# Entrada e saida
 ```cpp [lerInt.cpp] {*|2|3,4|*}
 int x,y;
 cin >> x >> y;
@@ -518,7 +507,15 @@ cout << min(a,b) << endl;
 
 ---
 
-# Learn More
+# Referências
+
+## Entre no [discord](https://discord.gg/7G9BK8mCES) para dúvidas
+
+<QRCode url="https://discord.gg/7G9BK8mCES" :size="150" />
+
+
+## Entre no [grupo](https://codeforces.com/group/mzbGmMVMMp) de questões
+<QRCode url="https://codeforces.com/group/mzbGmMVMMp" :size="150" />
 
 [Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
 
