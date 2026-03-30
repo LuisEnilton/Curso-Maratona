@@ -136,7 +136,7 @@ OBS: Ler double é muito lento, se possível leia tudo como inteiro e depois con
 
 ---
 
-# Caracteres e String
+# Caracteres
 ```cpp [lerCarac.cpp] {*|1,2|4-7|*} 
 char c; cin >> c; // ler somente um caractere
 cout << c << endl;
@@ -147,17 +147,7 @@ char aux = 'a' + 2; // vai ser igual a 'c'
 cout << aux << endl;
 ```
 
-```cpp [lerString.cpp] {*|1|2-3|4-5|6-7|*} 
-string s; // string é um array de caractere
-cin >> s;
-cout << s << endl;
-char c = 'a';
-s[0] = c; // uma posição dentro da string é um char
-cout << s.size() << endl; // retorna o tamanho da string
-s.push_back(c); // adiciona um caractere ao final da string
-```
-
-Mais metodos de string na [documentação](https://cplusplus.com/reference/string/string/).
+[Tabela Ascii](https://www.ime.usp.br/~pf/algoritmos/apend/ascii.html)
 
 ---
 
@@ -204,7 +194,6 @@ auto y = 2.2; // double
 auto z = x + y;
 auto str = "abcd";
 ```
-
 
 ---
 
@@ -273,7 +262,6 @@ if(a > b){
 ```
 
 [Problema Motivador](https://codeforces.com/group/mzbGmMVMMp/contest/670834/problem/C)
-
 
 ---
 
@@ -377,6 +365,22 @@ for(int i = 0; i < n;i++){
 
 ---
 
+# String
+
+```cpp [lerString.cpp] {*|1|2-3|4-5|6-7|*} 
+string s; // string é um array de caractere
+cin >> s;
+cout << s << endl;
+char c = 'a';
+s[0] = c; // uma posição dentro da string é um char
+cout << s.size() << endl; // retorna o tamanho da string
+s.push_back(c); // adiciona um caractere ao final da string
+```
+
+Mais métodos de string na [documentação](https://cplusplus.com/reference/string/string/).
+
+---
+
 # Vector
 Faz tudo que array faz, mas tem métodos adicionais. Em comparação com o array pode ser um pouco mais lento por ter realocação de memória.
 
@@ -422,7 +426,7 @@ for(char caractere : s){
 
 # Funções
 
-A função tem tem parâmetros, tipos de retorno e tipo dos parâmetros definidos. A função pode ser void.
+A função tem parâmetros, tipos de retorno e tipo dos parâmetros definidos. A função pode ser void.
 
 Os parâmetros podem ser passados por cópia ou referência, caso sejam passados por referência, se forem alterados dentro da função também serão alterados onde foi chamado.
 
