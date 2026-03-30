@@ -36,9 +36,12 @@ jobs:
         run: nci
 
       # --- Início dos Builds Múltiplos ---
-      
+       
       - name: Build Index (Raiz)
         run: npx slidev build index.md --out dist --base /${{github.event.repository.name}}/
+
+      - name: Build Aula 0
+        run: npx slidev build aula0.md --out dist/aula0 --base /${{github.event.repository.name}}/aula0/
 
       - name: Build Aula 1
         run: npx slidev build aula1.md --out dist/aula1 --base /${{github.event.repository.name}}/aula1/
@@ -51,7 +54,6 @@ jobs:
       
       - uses: actions/upload-pages-artifact@v3
         with:
-          # Faz o upload de toda a pasta dist que agora contém as subpastas aula1 e aula2
           path: ./MaratonaSlides/dist
 
   deploy:

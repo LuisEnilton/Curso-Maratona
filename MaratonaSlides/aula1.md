@@ -1,9 +1,7 @@
 ---
 # try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-# some information about your slides (markdown enabled)
+theme: dracula
+
 title: Introdução a Maratona e a C++
 info: |
   ## Slidev Starter Template
@@ -30,49 +28,9 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
-transition: fade-out
+layout: capa-aula
+numero_aula: 1
 ---
-
-# Objetivos do curso
-
-<v-clicks>
-
-- Incentivar vocês a participarem da maratona
-
-- Dar um nivel básico de dominios sobre algoritmos e estrutura de dados
-
-- Ter as habilidades básicas necessárias para resolver uma questão numa entrevista
-
-</v-clicks>
-
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
----
-
-# Porque estudar para maratona me ajudaria em algo?
-
-<v-clicks>
-
-- É divertido (eu acho).
-
-- Abre oportunidades em empresas boas.
-
-- Ajuda a ter a habilidade de transformar ideias em código.
-
-- Facilita muito sua vida em entrevistas.
-
-</v-clicks>
-
 ---
 layout: two-cols
 layoutClass: gap-16
@@ -81,7 +39,6 @@ layoutClass: gap-16
 # Sumário da Aula
 
 <Toc text-sm minDepth="1" maxDepth="2" columns=2  />
-
 ---
 
 # Estrutura básica
@@ -100,14 +57,13 @@ int main(){
 ```
 
 ---
----
 
 # Tipos de variáveis
 
 ## Inteiros
 ```cpp {*|1|2|*} 
-int a = 2; // vai de -2^31 até 2^31 -1
-long long b = 3;// vai de -2^63 até 
+int a = 2; // vai aproximadamente de -2 * 10e9 até 2 * 10e9
+long long b = 3;// vai aproximadamente de -4 * 10e8 até 4 * 10e18
 ```
 
 ## Ponto flutuante
@@ -122,47 +78,48 @@ long double b = 3.2;// vai de 1.18973e+4932 até 3.3621e-4932
 
 ## Booleanos
 
-```cpp  {*|1|2|4} 
+```cpp  {*|1|2|4-5} 
 bool a = true;
 bool b = false;
 
 // 0 tem valor false, e qualquer outro numero true
 bool c = 0, d = 2;
 ```
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
-
 ---
-title: Entrada e Saida
----
+
+# Entrada e Saida
 
 ```cpp [lerInt.cpp] {*|2|3,4|*}
 int x,y;
 cin >> x >> y;
 cout << x << " " << y << '\n';
 cout << x << " " << y << endl;
-// '\n' é
 ```
 '\n' é apenas quebra de linha, endl libera o buffer.
 
-Imprimir double pode causar erro de precisão.
+Existem funções que aceleram a velocidade de entrada e saida do programa
+```cpp [fastInpOut.cpp] {*|2|3,4|*}
+#define endl '\n'
+// Se usarmos endl ele vai liberar o buffer o que gasta muito tempo.
+int main(){
+
+  ios::sync_with_stdio(false); // Não é possivel misturar printf com cout depois de rodar essa linha
+  cin.tie(NULL)
+}
+// Ele não limpa mais o buffer toda vez que vai ler um numero
+```
+---
+
+# Entrada e saida em numeros reais
+
+Imprimir double pode causar erro de precisão por causa de arredondamentos.
 
 ````md magic-move {lines: true}
 ```cpp [lerDouble.cpp]
 double x,y;
-// ler double é mt lento, é melhor evitar
 cin >> x >> y;
-
-cout << x << " " << y << endl;
+double z = x * y;
+cout << z << endl;
 ```
 
 ```cpp [lerDouble.cpp]
@@ -170,9 +127,12 @@ cout << x << " " << y << endl;
 double x,y;
 cin >> x >> y;
 
-cout << setprecision(8) << fixed << x << " " << y << endl;
+cout << setprecision(8) << fixed << z << endl;
 ```
 ````
+[Questão Exemplo](https://codeforces.com/group/mzbGmMVMMp/contest/670834/problem/E)
+
+OBS: Ler double é muito lento, se possível leia tudo como inteiro e depois converta.
 
 ---
 
@@ -187,7 +147,7 @@ char aux = 'a' + 2; // vai ser igual a 'c'
 cout << aux << endl;
 ```
 
-```cpp [lerString.cpp] {*|1|2|4|*} 
+```cpp [lerString.cpp] {*|1|2-3|4-5|6-7|*} 
 string s; // string é um array de caractere
 cin >> s;
 cout << s << endl;
@@ -196,8 +156,11 @@ s[0] = c; // uma posição dentro da string é um char
 cout << s.size() << endl; // retorna o tamanho da string
 s.push_back(c); // adiciona um caractere ao final da string
 ```
+
+Mais metodos de string na [documentação](https://cplusplus.com/reference/string/string/).
+
 ---
----
+
 
 # Operadores
 ## Operadores aritméticos
@@ -211,7 +174,7 @@ int r = a % b; // resto da divisão
 ```
 
 ## Problema
-Como calcular o resto de uma divisão inteira sem precisar converter para double?
+Como calcular o teto de uma divisão inteira sem precisar converter para double?
 ````md magic-move {lines: true}
 
 ```cpp 
@@ -230,9 +193,9 @@ cout << teto << endl; // 3
 ```
 ````
 ---
----
+
 # Auto
-Existe um tipo de variável que deduz automaticamente seu tipo com base no que lhe foi atribuido.
+Tipo de variável que deduz automaticamente seu tipo com base no que lhe foi atribuido.
 
 ```cpp 
 int a = 2;
@@ -244,7 +207,7 @@ auto str = "abcd";
 
 
 ---
----
+
 # Overflow
 
 Ocorre quando o resultado de uma operação é maior (ou menor) do que o tamanho suportado pelo tipo
@@ -271,11 +234,12 @@ cout << b << endl;
 int a = 1e9;
 long long b = (1000) * (long long)a ;
 cout << b << endl;
+// primeiro a operação é realizada e depois o valor é colocado na variável, então ele não converte. 
 ```
 ````
 
 ---
----
+
 # Operadores lógicos
 Operados utilizados na lógica boleana
 
@@ -290,10 +254,10 @@ a = !a; // inverte o valor da condição
 
 ```
 ---
----
+
 # Condicionais
 
-Falaremos apenas de if-else
+Utilizaremos apenas de if-else
 
 ```cpp {*|2|*}
 int a,b; cin >> a >> b;
@@ -306,15 +270,16 @@ if(a > b){
   // se a == b entra aq
 }
 
-
-
 ```
 
----
-class: px-20
+[Problema Motivador](https://codeforces.com/group/mzbGmMVMMp/contest/670834/problem/C)
+
+
 ---
 
 # Curto circuito
+
+Curto circuito ocorre quando o programa retorna o valor de uma expressão booleana sem avaliar todos os seus termos.
 
 ````md magic-move {lines: true}
 ```cpp {*|1,2|4|*}
@@ -326,12 +291,23 @@ if(i < 3 && a[i] < 4){
 }
 ```
 
-```cpp {*|2|*}
+```cpp {*|3-5|*}
 int a[3] ={1,2,3};
 int i = 3;
-// Não!!
-// como o programa sabe que no && se uma condição for falsa, tudo já é falso, a expressão não é avaliada.
+/* Não!! como o programa sabe que no && se uma condição for falsa, tudo já é falso,
+então a expressão não precisa mais ser avaliada.
+*/
 if(i < 3 && a[i] < 4){
+
+}
+```
+
+```cpp {*|5|3-4|*}
+int a[3] ={1,2,3};
+int i = 3;
+// Isso também ocorre no ||
+// Se um termo for verdadeiro, tudo já é verdade e a expressão não precisa mais ser avaliada.
+if(1 == 1 || i > 5){
 
 }
 ```
@@ -373,22 +349,25 @@ while(n> 0){ // enquanto n for > 0
 ````
 
 ## Extra
-Também existe um foreach em C++, entraremos em detalhes na aula de estrutura de dados.
+Também existe um foreach em C++, entraremos em detalhes posteriormente.
 
 
 ---
 
 # Array
-Estrutura guarda elementos sequencias na memória. É 0 Indexado, os valores começam no indice 0;
+Estrutura guarda elementos de forma sequencial na memória. É 0 Indexado, os valores começam no indice 0;
 
-```cpp {*|1|2|3-4|5-7|8-11|*}
+```cpp {*|1|2|4-5|7-9|11-14|*} {lines:true}
 int a[5] = {0,1,2,3,4};
 int c[2]; // se criado vazio, é preenchido com lixo da memória
+
 // pra acessar uma posição individualmente
 int x = a[1];
+
 // pode ser criado dinamicamente
 int n; cin >> n;
 int b[n];
+
 // for que lê todas as posições de um array de tamanho n
 for(int i = 0; i < n;i++){
   cin >> b[i];
@@ -399,7 +378,7 @@ for(int i = 0; i < n;i++){
 ---
 
 # Vector
-Faz tudo que array faz, mas tem métodos adicionais. Em comparação com o array pode ser um pouco mais lento por ter realocação.
+Faz tudo que array faz, mas tem métodos adicionais. Em comparação com o array pode ser um pouco mais lento por ter realocação de memória.
 
 ```cpp {*|1|3|5-6|7-9|11,12|13,14|*}
 vector<int> a(5) = {1,2,3,4,5};
@@ -419,8 +398,26 @@ b.pop_back();
 // .size() retorna o tamanho
 cout << b.size() << endl;
 ```
+---
 
+# ForEach
 
+Em C++ existe um for que pode ser utilizado em estruturas como vector e string, para iterar sobre os valores deles sem precisar de índice.
+
+```cpp {*|1|3-5|7|9-11|*} {lines:true}
+vector<int> a(5) = {1,2,3,4,5};
+
+for(int valor: a){
+  cout << valor << endl;
+}
+
+string s = "abcde";
+
+for(char caractere : s){
+  cout << caractere << endl;
+}
+
+```
 ---
 
 # Funções
@@ -468,18 +465,12 @@ int main(){
 
 # Funções úteis de C++
 
-## Swap
-
-Troca o valor de duas variáveis de mesmo tipo.
+## Min
+Recebe 2 valores do mesmo tipo e retorna o menor deles.
 
 ```cpp 
-int a = 3, b = 2;
-swap(a,b);
-// tomar cuidado com arrays
-// se quiser trocar 2 arrays é preciso trocar as referências
-int a[2],b[2];
-
-swap(*a,*b);
+int a = 3,b = 2;
+cout << min(a,b) << endl;
 ```
 
 ## Max
@@ -491,32 +482,96 @@ cout << max(a,b) << endl;
 ```
 
 ---
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
 
-# Funções úteis de C++
-## Min
-Recebe 2 valores do mesmo tipo e retorna o menor deles.
+# Algoritmos básicos
+
+## Achar o maximo num array
+
+````md magic-move {lines: true}
+```cpp 
+vector<int> arr = {2,4,5,3,1};
+int maxi = 0;
+for(auto x : arr){
+  if(x > maxi) maxi = x;
+}
+```
+```cpp 
+vector<int> arr = {2,4,5,3,1};
+int maxi = 0;
+for(auto x : arr){
+  maxi = max(maxi,x);
+}
+```
 
 ```cpp 
-int a = 3,b = 2;
-cout << min(a,b) << endl;
+vector<int> arr = {2,4,5,3,1};
+// pra achar o minimo é a mesma coisa, so que inicialmente tem valor infinito
+int mini = INF;
+for(auto x : arr){
+  mini = min(mini,x);
+}
 ```
+````
+
+---
+
+# Algoritmos básicos
+
+## Contar a frequencia de cada valor num array
+
+````md magic-move {lines: true}
+```cpp 
+vector<int> arr = {2,4,5,3,1};
+vector<int> cnt(maximo + 1);
+for(auto x : arr){
+  cnt[x]++;
+}
+```
+```cpp 
+string s = "abcd";
+// contar a frequencia de cada caractere
+vector<int> cnt(26); // a posição 0 guarda pra 'a''e a 25 pra 'z'
+for(auto c : s){
+  cnt[c - 'a']++;
+}
+```
+````
+
+---
+
+# Problema
+
+## Eu tenho duas strings s e t, como saber se uma é anagrama da outra?
+
+[Problema](https://leetcode.com/problems/valid-anagram/description/)
 
 ---
 
 # Referências
 
-## Entre no [discord](https://discord.gg/7G9BK8mCES) para dúvidas
+- [Documentação C++](https://cplusplus.com/)
 
-<QRCode url="https://discord.gg/7G9BK8mCES" :size="150" />
+- [CP Algorithms](https://cp-algorithms.com/index.html) :
+Site com ótimas explicações para algoritmos mais complexos.
 
+- [Curso UFMG](https://www.youtube.com/playlist?list=PLU2KWF7n4KZzvYwAk7h2LAx4Td0kadh-T) :
+Várias ideias do nosso curso são baseadas nele.
 
-## Entre no [grupo](https://codeforces.com/group/mzbGmMVMMp) de questões
+- [MaratonUSP](https://www.youtube.com/@MaratonUSP) :
+Canal no youtube com aulas muito boas.
+
+- [Lista de questões por tópico](https://youkn0wwho.academy/topic-list):
+Ótimo site (em inglês) que tem lista de questões para quase todos os assuntos.
+
+---
+src: ./pages/contatos.md
+---
+
+---
+layout: end
+---
+# Obrigado por acompanhar a aula
+
+ Por favor preencha o [formulário](https://codeforces.com/group/mzbGmMVMMp) de feedback com sugestões e críticas para a próxima aula 🙃.
+
 <QRCode url="https://codeforces.com/group/mzbGmMVMMp" :size="150" />
-
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
-
-<PoweredBySlidev mt-10 />
