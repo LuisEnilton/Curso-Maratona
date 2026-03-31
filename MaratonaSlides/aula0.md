@@ -40,6 +40,9 @@ duration: 10min
 transition: slide-up
 ---
 
+# O que é a maratona
+
+
 # Porque estudar para maratona?
 
 <v-clicks>
@@ -99,6 +102,16 @@ transition: slide-up
 
 </v-clicks>
 
+---
+
+# Vereditos
+
+- $\color{green}{\text{Accepted (AC)}}$ \: parabéns! :)
+- $\color{red}{\text{Wrong Answer (WA)}}$: A resposta que seu programa deu não é correta :(
+- $\color{orange}{\text{Time Limit Exceeded (TLE)}}$: seu codigo não conseguiu dar a resposta dentro do tempo previsto pelo problema. :o
+- $\color{blue}{\text{Memory Limit Exceeded (MLE)}}$: seu código usou mais memória que a permitida pelo problema. :/
+- $\color{purple}{\text{Runtime Error}}$: houve algum erro durante a execução do seu código (muito comum ser causado por acesso de posicões indevidas da memória). :‘(
+- $\color{yellow}{\text{Presentation Error}}$: sua saída está formatada de maneira diferente da proposta pelo problema. >:[  
 ---
 
 # Links Uteis
