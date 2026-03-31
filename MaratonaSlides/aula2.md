@@ -91,8 +91,6 @@ Isso é a definição de **Logaritmo na base 2**.
 | $10^6$ elementos | 1.000.000 chutes | ~ 20 chutes |
 | $10^9$ elementos | 1.000.000.000 chutes | ~ 30 chutes |
 
-<br>
-
 </v-clicks>
 
 ---
