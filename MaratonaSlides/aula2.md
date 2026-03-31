@@ -99,7 +99,7 @@ Isso é a definição de **Logaritmo na base 2**.
 
 Dado um array com N elementos responda Q perguntas do tipo "Qual o indice do elemento V no array, se V não estiver no array imprima 'X' ".
 
-[Link Problema]([Exercicio](https://neps.academy/br/exercise/2758))
+[Link Problema](https://neps.academy/br/exercise/2758)
 
 
 ---
