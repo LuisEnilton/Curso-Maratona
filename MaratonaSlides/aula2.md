@@ -99,7 +99,7 @@ Isso é a definição de **Logaritmo na base 2**.
 
 Dado um array com N elementos responda Q perguntas do tipo "Qual o indice do elemento V no array, se V não estiver no array imprima 'X' ".
 
-[Link Problema](https://neps.academy/br/exercise/2758)
+[Link Problema](https://codeforces.com/group/mzbGmMVMMp/contest/683347/problem/D)
 
 
 ---
@@ -358,11 +358,13 @@ Efetuariamos $31 * 10^4$ operações o que passa com bastante folga no tempo lim
 
 # Problema
 
-Descubrar se um numero N é primo.
+Responda Q consultas no formato "O numero N é Primo?", se o numero N for primo imprima "YES", caso contrário imprima "NO".
 
-N <= $10^{12}$
+Q <= ${10^2}$
 
-[Link do Problema](https://neps.academy/br/course/logica-de-programacao/lesson/e-primo)
+N <= $10^{10}$
+
+[Link do Problema](https://codeforces.com/group/mzbGmMVMMp/contest/683347/problem/L)
 
 ---
 
