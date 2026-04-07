@@ -381,6 +381,44 @@ Mais métodos de string na [documentação](https://cplusplus.com/reference/stri
 
 ---
 
+# String
+
+Para ler uma linha inteiro (inclusive espaços) temos que usar getline.
+
+
+```cpp [lerString.cpp] {*|1|2-3|4-5|6-7|*} 
+string s; // string é um array de caractere
+getline(cin, s);
+cout << s << endl;
+```
+
+Digamos que o formato da entrada seja :
+
+2
+
+linha de texto
+
+````md magic-move {lines: true}
+```cpp 
+int x; cin >> x;
+string s; // string é um array de caractere
+getline(cin, s);
+cout << s << endl; // vai imprimir uma quebra de linha
+
+```
+```cpp 
+int x; 
+string s; 
+cin >> x;
+cin.ignore();
+getline(cin, s); // isso vai ler a quebra de linha do cin anterior.
+cout << s << endl; // vai imprimir uma quebra de linha
+
+```
+````
+
+---
+
 # Vector
 Faz tudo que array faz, mas tem métodos adicionais. Em comparação com o array pode ser um pouco mais lento por ter realocação de memória.
 
