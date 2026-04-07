@@ -391,7 +391,6 @@ Peguem o link do quiz no chat.
 - [Documentação C++](https://cplusplus.com/)
 - [Livro Entendendo algoritmos](https://www.amazon.com.br/Entendendo-Algoritmos-Ilustrado-Programadores-Curiosos/dp/8575225634)
 - [Aula UFMG](https://www.youtube.com/watch?v=cu3kKbkEZSw&list=PLU2KWF7n4KZzvYwAk7h2LAx4Td0kadh-T)
-- [Quiz](https://create.kahoot.it/share/quiz-complexidade-algoritmos/d71a1c5e-f556-43f8-a0d1-2d855fa58579)
 - [Série Harmônica](https://pt.wikipedia.org/wiki/S%C3%A9rie_harm%C3%B3nica_(matem%C3%A1tica))
 
 ---
@@ -403,6 +402,6 @@ layout: end
 ---
 # Obrigado por acompanhar a aula
 
- Por favor preencha o [formulário](https://codeforces.com/group/mzbGmMVMMp) de feedback com sugestões e críticas para a próxima aula 🙃.
+ Por favor preencha o [formulário](https://forms.gle/Vz4427GpqLVpc7N39) de feedback com sugestões e críticas para a próxima aula 🙃.
 
-<QRCode url="https://codeforces.com/group/mzbGmMVMMp" :size="150" />
+<QRCode url="https://forms.gle/Vz4427GpqLVpc7N39" :size="150" />

@@ -96,6 +96,8 @@ Competição de quem resolve mais problemas de programação em menos tempos.
 
 <v-clicks>
 
+- A única linguagem utilizada será C++
+
 - Praticar é o mais importante, só assistir as aulas é perda de tempo.
 
 - Dediquem no mínimo 2 horas semanais pra tentar resolver as questões   
@@ -105,6 +107,21 @@ Competição de quem resolve mais problemas de programação em menos tempos.
 - Não copie e cole código de LLMs
 
 </v-clicks>
+
+---
+
+# Configuração do ambiente
+
+## Linux
+
+- Apenas exista
+
+- [Como executar](https://www.inf.pucrs.br/~pinho/LaproI/Unix/CompilandoProgramas.htm)
+
+
+## Windows
+
+[Instalar C++](https://canva.link/ggnioluuhs1iyts)
 
 ---
 
