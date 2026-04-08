@@ -165,6 +165,9 @@ Competição de quem resolve mais problemas de programação em menos tempos.
 
 Esses sites estão em inglês, mas se você sentir que tem que praticar mais, vai traduzindo no google tradutor ou em alguma LLM.
 
+- Melhor fonte para aprender C++
+[Link](https://www.programiz.com/cpp-programming/getting-started)
+
 - Grupo com muitas questões em assuntos introdutórios.
 [Link](https://codeforces.com/group/MWSDmqGsZm/contests)
 

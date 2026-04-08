@@ -2,11 +2,11 @@ Esse repositório contém os slides e códigos do curso de programação competi
 
 ## Slides
 
-Os slides das aulas estão na pasta /slides
+Os slides das aulas estão na pasta [/Slides](./Slides/)
 
 ## Código
 
-Os códigos de cada aula estão dividos por pasta em /Codigos
+Os códigos de cada aula estão dividos por pasta em [/Codigos](/Codigos/)
 
 
 ## Contribuir
