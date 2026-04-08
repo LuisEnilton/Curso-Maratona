@@ -157,6 +157,8 @@ Competição de quem resolve mais problemas de programação em menos tempos.
 
 - Não tenham medo de pedir ajuda, o servidor do discord foi feito pra isso, se você sabe tirar a dúvida do seu coleguinha ajude ele, ensinar também um ótimo metodo de aprendizado.
 
+- Recomendo que crie um repositório no github para guardar seus códigos.
+
 </v-clicks>
 
 ---
@@ -181,6 +183,8 @@ Esses sites estão em inglês, mas se você sentir que tem que praticar mais, va
 [Grupo no Discord](https://discord.gg/7G9BK8mCES)
 
 [Grupo de questões](https://codeforces.com/group/mzbGmMVMMp)
+
+[Repositório com slides e código](https://github.com/LuisEnilton/Curso-Maratona)
 
 
 
