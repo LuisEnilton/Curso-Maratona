@@ -614,6 +614,6 @@ layout: end
 ---
 # Obrigado por acompanhar a aula
 
- Por favor preencha o [formulário](https://codeforces.com/group/mzbGmMVMMp) de feedback com sugestões e críticas para a próxima aula 🙃.
+ Por favor preencha o [formulário](https://forms.gle/d2NH7QT2UoMGSQd29) de feedback com sugestões e críticas para a próxima aula 🙃.
 
-<QRCode url="https://codeforces.com/group/mzbGmMVMMp" :size="150" />
+<QRCode url="https://forms.gle/d2NH7QT2UoMGSQd29" :size="150" />
