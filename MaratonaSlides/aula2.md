@@ -402,6 +402,6 @@ layout: end
 ---
 # Obrigado por acompanhar a aula
 
- Por favor preencha o [formulário](https://forms.gle/Vz4427GpqLVpc7N39) de feedback com sugestões e críticas para a próxima aula 🙃.
+ Por favor preencha o [formulário](https://forms.gle/fCRnxoAuGDCpTsBy5) de feedback com sugestões e críticas para a próxima aula 🙃.
 
-<QRCode url="https://forms.gle/Vz4427GpqLVpc7N39" :size="150" />
+<QRCode url="https://forms.gle/fCRnxoAuGDCpTsBy5" :size="150" />
