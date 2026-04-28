@@ -44,19 +44,38 @@ layoutClass: gap-16
 
 # Ponteiros
 
-Ponteiros são variáveis que guardam o endereço de memória de outras variáveis .
+<v-clicks>
 
 Cada variável declarada no programa tem uma localização na memória associada a ela que chamamos de endereço.
 
-Para acessar o endereço de uma variável usamos '&'.
+Ponteiros são variáveis que guardam o endereço de memória de outras variáveis, eles são declarados colocando um '*' após o tipo.
+
+Por exemplo "int*", indica que esse é um ponteiro que guarda um endereço de uma variável int.
+
+Para acessar o endereço de uma variável usamos '&' e para acessar o valor da variável que o ponteiro está apontando usamos '*'.
+
+Não utilizem ponteiros se não for necessário, é bem fácil criar bugs com eles.
 
 ```cpp
 int x = 2;
+cout << &x << endl; // vai printar um hexadecimal (endereço).
 
-cout << &x << endl;
+int* ptr = &x;
+
+cout << *ptr << endl; // vai printar 2.
+
+*ptr = 3; // tambem podemos alterar o valor da variavel com o ponteiro
+
+
+</v-clicks>
 
 ```
 
+---
+
+# Observação
+
+Qual a complexidade para apagar um elemento de um array?.
 
 ---
 
@@ -86,7 +105,7 @@ Significa "Standard Template Library" (Biblioteca de modelos padrão).
 
 Essas funcionalidades são implementadas da forma genérica possível para serem de propósito geral.
 
-Para usa-la precisamos apenas incluir o header " <bits/stdc++.h>".
+Para usa-la precisamos apenas incluir o header "<bits/stdc++.h>".
 
 ```cpp
 #include <bits/stdc++.h>
@@ -198,6 +217,16 @@ cout << par.second << endl; // Nome
 par.first = 3; // podemos modificar um elemento separadamente.
 par.second = "Nome2";
 ```
+
+Para comparar pair, primeiro o programa analisa o primeiro elemento, se os dois forem iguais compara o segundo.
+
+```cpp
+pair<int,int> a = {2,5};
+pair<int,int> b = {3,4};
+cout << (a < b) << endl; // true
+a.first = 3;
+cout << (a < b) << endl; // false
+```
 ---
 
 # Problema
@@ -209,294 +238,208 @@ Dado um array A não ordenado, imprima a posição original de cada elemento no 
 
 ---
 
-# Por que estudar complexidade?
+# Pilha
 
-Nos problemas de maratona não nos importamos apenas se o algoritmo está correto, mas também com a velocidade que ele executa.
-
-Essa motivação nos leva a estudar complexidade, que nos dá uma estimativa, com base na entrada do tempo que o algoritmo demora para rodar .
-
-Motivos:
 <v-clicks>
 
-- Estimar o tempo de execução sem ter o código.
+Uma pilha é uma estrutura de dados abstrata que segue o princípio LIFO(Last In First Out), ou seja o ultimo elemento adicionado vai ser o primeiro a ser removido.
 
-- Avaliar o pior caso para a solução proposta, em competições, os testes dos juizes são feitos para quebrar soluções ineficientes.
+Uma forma de visualizar é pensar numa pilha de pratos uma em cima da outra, e você pode:
 
-- Saber que estrutura de dados eu posso utilizar, sem estourar o limite de tempo.
+- Colocar um novo prato em cima.
+
+- Retirar um prato.
+
+Se você quiser pegar o prato que está na base, você terá que retirar todos os pratos.
+
+## Aplicações básicas
+
+- Inverter uma string (ou array).
+
+- Botão de voltar do navegador.
 
 </v-clicks>
 
 ---
 
-# Notação Big O
-
-O Big O ($O$) descreve como o número de operações do seu algoritmo cresce à medida que a entrada ($N$) aumenta.
-
-## Definições
-
-<v-clicks>
-
-- **Não mede o tempo em segundos:** Segundos dependem do hardware, da linguagem e do compilador.
-- **Mede a ordem de grandeza:** Se a entrada dobrar, o tempo dobra? Quadruplica?
-- **Foca no Pior Caso:** Assumimos que o universo conspira contra nós. Se a busca pode ir até o final da lista, assumimos que ela vai até o final.
-- **Ignora Constantes:** Para o Big O, $O(2N)$ e $O(50N)$ são apenas $O(N)$. O que importa é a curva de crescimento.
-
-</v-clicks>
----
-
-# Aplicação na Maratona
-
-Via de regra, em competições usando C++, em 1 segundo o computador processa **$10^8$ operações.
-
-Em cada problema é definido o tempo limite máximo e as restrições para o tamanho da entrada.
-
-<img src="/TabelaComplexidade.png" class="w-2/5 mx-auto rounded-lg shadow-lg border border-gray-300" />
----
-
-# Analisando código
- 
-## Loops aninhados
-
-<v-clicks>
-
+# Pilha em C++
 ```cpp
-int cnt = 0;
-for(int i = 1; i <=n;i++){
-  for(int j = 1;j <=m;j++){
-    cnt++;
-  }
-}
+stack<int> pilha; // voce definie o tipo com <TIPO>
+
+pilha.push(2); // adiciona um elemento
+pilha.push(3);
+cout << pilha.top() << endl; // retorna o elemento no topo da pilha
+cout << pilha.size() << endl;// retorna o tamanho atual da pilha
+cout << pilha.empty() << endl; // retorna um booleano (se a pilha está vazia).
+pilha.pop() // remove o elemento do topo.
 
-```
-
-- Em loops aninhados em cada voltar do loop exterior, você roda o loop interior completo, então você multiplica a complexidade dos dois.
-- O(N * M)
-
-</v-clicks>
-
----
-
-# Analisando código
-
-## Loops separados
-
-<v-clicks>
-
-```cpp
-int cnt = 0;
-for(int i = 1; i <=n;i++){
-  
-}
-
-for(int j = 1;j <=m;j++){
-    cnt++;
-  }
-
-```
-
-- Em loops Separados, calculamos a complexidade separadamente e depois somamos.
-- O(N + M)
-
-</v-clicks>
-
----
-
-# Exercicio Motivador
-
-## Divisores de um número
-
-<v-clicks>
-
-Dado um numero N, encontre todos os divisores dele.
-
-Restrições: N <= $10^9$.
-
-Tempo limite: 1 segundo.
-</v-clicks>
-
----
-
-# Primeira Abordagem
-Podemos iterar por todos os numeros <= a N e testar se ele divide N.
-
-```cpp
-vector<int> divisores;
-for(int i = 1; i <=n;i++){
-  if((n % i) == 0) divisores.push_back(i);
-}
-
-```
-
-<v-clicks>
-
-Qual a complexidade desse código?
-
-$O(N)$
-
-Efetuariamos $10^9$ operações o que é muito lento.
-
-</v-clicks>
-
----
-
-# Segunda abordagem
-
-É impossivel que um numero maior do que a metade divida N, logo só precisamos testar até N/2
-
-```cpp
-for(int i = 1; i <=n/2;i++){
-  if((n % i) == 0) divisores.push_back(i);
-}
-```
-<v-clicks>
-
-Qual a complexidade desse código?
-
-$O(N/2)$ = $O(N)$ 
-
-Efetuariamos $5 * 10^8$ operações o que ainda é muito lento.
-
-</v-clicks>
-
----
-
-# Observação
-
-Todo número N tem uma quantidade finita de divisores, mas eles não estão distribuidos de forma aleatória.
-
-Eles se organizam em pares ao redor do ponto central: $\sqrt{N}$.
-
-
-<v-clicks>
-
-$$d \times \left(\frac{N}{d}\right) = N$$
-
-Se $d$ é um divisor, $\frac{N}{d}$ também é. Um "espelha" o outro.
-
-Prova por contradição: Existir dois divisores a e b de N (a/N = b) tal que a > $\sqrt{N}$ e b > $\sqrt{N}$ $\Rightarrow$ $a * b > N$ , o que é uma contradição.
-
-</v-clicks>
-
----
-layout: two-cols
-class: text-center
-transition: slide-up
----
-
-# Divisores de $N=36$
-## Espelho em $\sqrt{36} = 6$
-
-<div class="text-lg space-y-2 font-mono w-full px-4 mt-2">
-  
-  <span v-click class="block border border-opacity-20 py-0.5 rounded bg-opacity-10 bg-gray-500">Iteração $i=1$</span>
-  
-  <span v-click class="block border border-opacity-20 py-0.5 rounded bg-opacity-10 bg-gray-500">Iteração $i=2$</span>
-  
-  <span v-click class="block border border-opacity-20 py-0.5 rounded bg-opacity-10 bg-gray-500">Iteração $i=3$</span>
-  
-  <span v-click class="block border border-opacity-20 py-0.5 rounded bg-opacity-10 bg-gray-500">Iteração $i=4$</span>
-  
-  <span v-click class="block border border-opacity-20 py-0.5 rounded bg-opacity-10 bg-gray-500 leading-tight">Iteração $i=5$ <span class="text-red-400 text-xs block">Não divide (pula)</span></span>
-  
-  <span v-click class="block border border-primary py-0.5 rounded bg-opacity-20 bg-primary font-bold">Iteração $i=6 = \sqrt{36}$</span>
-
-</div>
-
-::right::
-
-<div class="flex flex-col items-center h-full mt-2">
-
-<h3 class="mb-4 text-sm opacity-80 uppercase tracking-widest">Pares Encontrados</h3>
-
-<div class="grid grid-cols-2 gap-x-10 gap-y-2 font-bold text-3xl w-fit mx-auto">
-  
-  <div v-click="1" class="text-right text-green-300">1</div>
-  <div v-click="1" class="text-left text-green-300">36</div>
-
-  <div v-click="2" class="text-right text-cyan-300">2</div>
-  <div v-click="2" class="text-left text-cyan-300">18</div>
-
-  <div v-click="3" class="text-right text-purple-300">3</div>
-  <div v-click="3" class="text-left text-purple-300">12</div>
-
-  <div v-click="4" class="text-right text-amber-300">4</div>
-  <div v-click="4" class="text-left text-amber-300">9</div>
-
-  <div v-click="6" class="text-right text-blue-300">6</div>
-  <div v-click="6" class="text-left text-blue-300">6</div>
-
-</div>
-
-<div v-click="7" class="mt-4 w-full pt-3 border-t border-dashed border-opacity-30 border-gray-400 text-center text-sm">
-  <p class="font-bold text-green-400">Iterações: 6 (vs 36)</p>
-  <p class="text-xs opacity-60 mt-1">Após a raiz, os pares apenas se repetem de trás pra frente.</p>
-</div>
-
-</div>
-
----
-
-# Terceira abordagem
-
-Com base na observação anterior, só precisamos testar os numeros até $\sqrt{N}$
-
-```cpp
-for(int i = 1; i * i <=n;i++){
-  if((n % i) == 0) {
-    divisores.push_back(i);
-    if(i != n/i) divisores.push_back(n/i);
-    // precisamos tratar o caso da raiz quadrada pra não ficar duplicado
-  }
-}
-```
-<v-clicks>
-
-Qual a complexidade desse código?
-
-$O(\sqrt{N})$
-
-Efetuariamos $31 * 10^4$ operações o que passa com bastante folga no tempo limite.
-
-</v-clicks>
-
----
-
-# Problema
-
-Responda Q consultas no formato "O numero N é Primo?", se o numero N for primo imprima "YES", caso contrário imprima "NO".
-
-Q <= ${10^2}$
-
-N <= $10^{10}$
-
-[Link do Problema](https://codeforces.com/group/mzbGmMVMMp/contest/683347/problem/L)
-
----
-
-# Solução
-
-```cpp
-bool eh_primo = true;
-for(int i = 1; i * i <=n;i++){
-  if((n % i) == 0) {
-    eh_primo = false;
-  }
-}
 ```
 ---
 
-# Hora do Quiz
+# Questão clássica
 
-Peguem o link do quiz no chat.
+Dada uma sequência de parênteses, determine se ela está balanceada. Ela está balanceada se cada parentêse aberto '(' tem um parêntese fechado correspondente ')'.
+
+---
+
+# Fila
+
+Uma fila é uma estrutura de dados abstrata que segue o princípio FIFO(First In First Out), ou seja o primeiro elemento adicionado vai ser o primeiro a ser removido.
+
+É uma abstração muito utilizada para simular algoritmos e como base para algoritmos mais complexos.
+
+Também é a base para algoritmos de busca em largura (falaremos sobre na aula de grafos).
+
+---
+
+# Fila em C++
+
+```cpp
+queue<int> fila; // voce definie o tipo com <TIPO>
+
+fila.push(2); // adiciona um elemento
+fila.push(3);
+cout << pilha.front() << endl; // retorna o elemento na frente da fila
+cout << pilha.size() << endl;// retorna o tamanho atual da fila
+cout << pilha.empty() << endl; // retorna um booleano (se a fila está vazia).
+pilha.pop() // remove o elemento do frente.
+
+```
+
+---
+
+# Questão
+
+[Questão](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/D)
+
+
+---
+
+# Algoritmos
+
+A STL também tem uma coleção de algoritmos úteis para resolução de problemas.
+
+Os principais são:
+
+- sort(), ordena um conjunto de elementos (vector ou array) em O(NlogN)
+
+- reverse(), inverte um conjunto de elementos em O(N).
+
+- swap(), troca o valor de duas variáveis em O(1).
+
+- unique(), dado um array ordenado, ele deixa apenas valores únicos nele.
+
+[Lista completa](https://cppreference.com/cpp/algorithm)
+
+---
+
+# Sort
+
+Função que ordena um array de elementos.
+
+````md magic-move {lines: true}
+```cpp
+int n; cin >> n;
+vector<int> a(n);
+for(int i = 0 ; i < n;i++){
+  cin >> a[i];
+}
+sort(a.begin(),a.end());
+for(int x : a)cout << x << " ";
+cout << endl; // 1 2 3 4 5
+
+```
+```cpp
+int n; cin >> n;
+int a[n];
+for(int i = 0 ; i < n;i++){
+  cin >> a[i];
+}
+sort(a,a + n);
+for(int i = 0 ; i < n;i++) cout << a[i] << " ";
+cout << endl;
+```
+````
+---
+
+# Reverse
+
+Inverte o conteúdo de um vector.
+
+```cpp
+int n; cin >> n;
+vector<int> a(n);
+for(int i = 0 ; i < n;i++){
+  cin >> a[i];
+}
+reverse(a.begin(),a.end()); // inverte o vector
+```
+
+
+---
+
+# Swap
+
+Troca o valor de duas variáveis em O(1).
+
+```cpp
+int a = 2, b = 3;
+swap(a,b);
+cout << a << " " << b << endl;
+
+string s1 = "primeira", s2 = "segunda";
+swap(s1,s2);
+
+cout << s1 << " " << s2 << endl;
+
+vector<int> v1 = {2,3,4} , v2 = {6,3};
+swap(v1,v2); // troca os dois vetores.
+
+
+```
+
+---
+
+# Unique
+
+Dado um array ordenado, essa função move os elementos duplicados pro final, utilizamos o erase pra conseguir o array sem duplicatas.
+
+
+
+```cpp
+vector<int> a = {2, 3 , 1, 4 , 2 , 1};
+
+// antes de usarmos a função temos que ordenar
+sort(a.begin(),a.end()); // {1,1,2,2,3,4};
+
+// a função retorna um ponteiro para o final dos elementos únicos
+auto last = unique(a.begin(),a.end()); // {1,2,3,4,x,x}.
+// agora precisamos apagar os elementos duplicados
+
+a.erase(last,a.end());
+
+for(int x : a){
+  cout << x << " ";
+}
+cout << endl;
+```
+
+---
+
+# Questão
+
+Descobrir quantos valores únicos eu tenho num array.
+
+[Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/K)
 
 ---
 
 # Referências
 
 - [Documentação C++](https://cplusplus.com/)
-- [Livro Entendendo algoritmos](https://www.amazon.com.br/Entendendo-Algoritmos-Ilustrado-Programadores-Curiosos/dp/8575225634)
-- [Aula UFMG](https://www.youtube.com/watch?v=cu3kKbkEZSw&list=PLU2KWF7n4KZzvYwAk7h2LAx4Td0kadh-T)
-- [Série Harmônica](https://pt.wikipedia.org/wiki/S%C3%A9rie_harm%C3%B3nica_(matem%C3%A1tica))
+- [Programiz](https://www.programiz.com/cpp-programming/standard-template-library)
+- [Livro CPH](https://cses.fi/book/book.pdf)
+- [Aula UFMG](https://www.youtube.com/watch?v=beHruxE8D0M&list=PLU2KWF7n4KZzvYwAk7h2LAx4Td0kadh-T&index=3)
 
 ---
 src: ./pages/contatos.md
@@ -507,6 +450,6 @@ layout: end
 ---
 # Obrigado por acompanhar a aula
 
- Por favor preencha o [formulário](https://forms.gle/fCRnxoAuGDCpTsBy5) de feedback com sugestões e críticas para a próxima aula 🙃.
+ Por favor preencha o [formulário](https://forms.gle/Tb8R7H8aigeAgpbG7) de feedback com sugestões e críticas para a próxima aula 🙃.
 
-<QRCode url="https://forms.gle/fCRnxoAuGDCpTsBy5" :size="150" />
+<QRCode url="https://forms.gle/Tb8R7H8aigeAgpbG7" :size="150" />

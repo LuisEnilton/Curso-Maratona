@@ -8,4 +8,4 @@ Escolha uma aula abaixo:
 
 <a href="./aula2/" target="_self">Aula 2 (Complexidade)</a>
 
-<QRCode url="https://nil.github.io/MaratonaSlides/" :size="150" />
+<a href="./aula3/" target="_self">Aula 3 (STL)</a>
