@@ -66,16 +66,15 @@ cout << *ptr << endl; // vai printar 2.
 
 *ptr = 3; // tambem podemos alterar o valor da variavel com o ponteiro
 
+```
 
 </v-clicks>
-
-```
 
 ---
 
 # Observação
 
-Qual a complexidade para apagar um elemento de um array?.
+Qual a complexidade para apagar um elemento de um array?
 
 ---
 
@@ -83,11 +82,11 @@ Qual a complexidade para apagar um elemento de um array?.
 
 <v-clicks>
 
-Listas ligadas são estruturas de dados em que cada elemento tem um ponteiro apontando para o próximo elemento da lista
+Listas ligadas é uma estrutura de dados sequencial em que cada elemento tem um ponteiro apontando para o próximo elemento da lista.
 
 Ao contrário do array os elementos não estão em posições contiguas de memória, por isso não conseguimos acessar um indice i arbitrário.
 
-Por outro lado é extremamente fácil remover elementos, já que precisamos apenas retirar a referência aquela posição
+Por outro lado é extremamente fácil remover elementos, já que precisamos apenas retirar a referência aquela posição.
 
 [Visualização](https://visualgo.net/en/list)
 
@@ -132,7 +131,7 @@ pair<int,string> // Definimos os dois tipos do pair com <TIPO1,TIPO2>
 
 ```
 
-Em C++, no geral temos 3 tipos de containers:
+Em C++, em geral temos 3 tipos de containers:
 
 - Sequenciais.
 
@@ -144,6 +143,8 @@ Em C++, no geral temos 3 tipos de containers:
 ---
 
 # Iteradores
+
+<v-clicks>
 
 Um iterador é um ponteiro que representa a posição de um elemento num container, é usado para iterar numa estrutura.
 
@@ -182,6 +183,9 @@ for(;itr != fin;itr++){
 ```
 
 ````
+
+</v-clicks>
+
 ---
 
 # Por que usar Iteradores
@@ -199,6 +203,9 @@ Outra vantagem é que algoritmos da STL como `std::sort()` recebem iteradores co
 ---
 
 # Pair
+
+
+<v-clicks>
 
 Pair é uma estrutura que guarda dois elementos, os tipos desses elementos é definido na criação.
 
@@ -227,6 +234,10 @@ cout << (a < b) << endl; // true
 a.first = 3;
 cout << (a < b) << endl; // false
 ```
+
+
+</v-clicks>
+
 ---
 
 # Problema
@@ -284,11 +295,15 @@ Dada uma sequência de parênteses, determine se ela está balanceada. Ela está
 
 # Fila
 
+<v-clicks>
+
 Uma fila é uma estrutura de dados abstrata que segue o princípio FIFO(First In First Out), ou seja o primeiro elemento adicionado vai ser o primeiro a ser removido.
 
 É uma abstração muito utilizada para simular algoritmos e como base para algoritmos mais complexos.
 
 Também é a base para algoritmos de busca em largura (falaremos sobre na aula de grafos).
+
+</v-clicks>
 
 ---
 
@@ -317,6 +332,9 @@ pilha.pop() // remove o elemento do frente.
 
 # Algoritmos
 
+
+<v-clicks>
+
 A STL também tem uma coleção de algoritmos úteis para resolução de problemas.
 
 Os principais são:
@@ -331,11 +349,13 @@ Os principais são:
 
 [Lista completa](https://cppreference.com/cpp/algorithm)
 
+</v-clicks>
+
 ---
 
 # Sort
 
-Função que ordena um array de elementos.
+Função que ordena um array de elementos, ela recebe um ponteiro pro inicio e um ponteiro pro final do array e ordena esse intervalo.
 
 ````md magic-move {lines: true}
 ```cpp
