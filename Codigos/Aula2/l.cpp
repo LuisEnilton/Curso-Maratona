@@ -21,9 +21,22 @@ signed main()
 
     while(q--){
         long long n; cin >> n;
-        bool ans = eh_primo(n);
-        cout << (ans ? "YES":"NO" ) << endl;
+        cout << (eh_primo(n) ? "YES":"NO" ) << endl;
     }
+
+    /*
+    Operador ternário
+    
+    Sintaxe
+    (Condiçao ? "YES":"NO")
+
+    if(Condiçao){
+        "YES"
+    }else{
+        "NO"
+    }
+
+    */
 
 
     return 0;

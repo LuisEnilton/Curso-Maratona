@@ -2,27 +2,47 @@
 #define endl '\n'
 using namespace std;
 
-bool eh_primo(int n){
-    if(n == 1) return false;
+bool busca_binaria(int x , vector<int> & a){
 
-    for(int i = 2; i * i <= n;i++){
-        if((n % i) == 0) return false;
+    int esquerda = 0, direita = a.size() - 1;
+
+    while(esquerda <= direita){
+        int meio = (esquerda + direita)/2;
+
+        if(a[meio] == x) return true;
+        else if(a[meio] < x){
+            esquerda = meio + 1;
+            
+        }else{
+            direita = meio - 1;
+        }
     }
-    return true;
-}
 
+    return false;
+}
 
 signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int q; cin >> q;
+    int n,q; cin >> n >>q;
 
+    vector<int> a(n);
+
+    for(int & x : a) cin >> x;
+
+    sort(a.begin(),a.end());
+    // for(auto x : a){
+    //     cout << x << " ";
+    // }
+    // cout << endl;
     while(q--){
-        int n; cin >> n;
-        bool ans = eh_primo(n);
-        cout << (ans ? "YES":"NO" ) << endl;
+        int x; cin >> x;
+        // cout << x << endl;
+        bool ans = busca_binaria(x,a);
+
+        cout << (ans ? "YES":"NO") << endl;
     }
 
 
