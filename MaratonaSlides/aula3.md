@@ -291,6 +291,8 @@ pilha.pop() // remove o elemento do topo.
 
 Dada uma sequência de parênteses, determine se ela está balanceada. Ela está balanceada se cada parentêse aberto '(' tem um parêntese fechado correspondente ')'.
 
+[Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/E)
+
 ---
 
 # Fila
