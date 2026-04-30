@@ -244,7 +244,7 @@ cout << (a < b) << endl; // false
 
 Dado um array A não ordenado, imprima a posição original de cada elemento no array ordenado.
 
-[Link Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/A)
+[Link Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/C)
 
 
 ---
