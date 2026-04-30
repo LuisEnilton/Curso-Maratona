@@ -327,7 +327,7 @@ pilha.pop() // remove o elemento do frente.
 
 # Questão
 
-[Questão](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/D)
+[Questão](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/F)
 
 
 ---
@@ -452,7 +452,7 @@ cout << endl;
 
 Descobrir quantos valores únicos eu tenho num array.
 
-[Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/K)
+[Problema](https://codeforces.com/group/mzbGmMVMMp/contest/689521/problem/B)
 
 ---
 
@@ -472,6 +472,6 @@ layout: end
 ---
 # Obrigado por acompanhar a aula
 
- Por favor preencha o [formulário](https://forms.gle/Tb8R7H8aigeAgpbG7) de feedback com sugestões e críticas para a próxima aula 🙃.
+ Por favor preencha o [formulário](https://forms.gle/FKEfS8JL5UnaTfzM9) de feedback com sugestões e críticas para a próxima aula 🙃.
 
-<QRCode url="https://forms.gle/Tb8R7H8aigeAgpbG7" :size="150" />
+<QRCode url="https://forms.gle/FKEfS8JL5UnaTfzM9" :size="150" />
