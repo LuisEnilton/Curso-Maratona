@@ -25,35 +25,42 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Instala o pnpm oficialmente na mesma versão que você usa na sua máquina
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # Configura o Node e ativa o cache otimizado para a sua subpasta
       - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+          cache: 'pnpm'
+          cache-dependency-path: './MaratonaSlides/pnpm-lock.yaml'
 
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
-
+      # Instala as dependências respeitando estritamente o seu lockfile e permissões
       - name: Install dependencies
-        run: nci
+        run: pnpm install --frozen-lockfile
 
-      # --- Início dos Builds Múltiplos ---
+      # --- Início dos Builds Múltiplos (Substituído npx por pnpm exec) ---
        
       - name: Build Index (Raiz)
-        run: npx slidev build index.md --out dist --base /${{github.event.repository.name}}/
+        run: pnpm exec slidev build index.md --out dist --base /${{github.event.repository.name}}/
 
       - name: Build Aula 0
-        run: npx slidev build aula0.md --out dist/aula0 --base /${{github.event.repository.name}}/aula0/
+        run: pnpm exec slidev build aula0.md --out dist/aula0 --base /${{github.event.repository.name}}/aula0/
 
       - name: Build Aula 1
-        run: npx slidev build aula1.md --out dist/aula1 --base /${{github.event.repository.name}}/aula1/
+        run: pnpm exec slidev build aula1.md --out dist/aula1 --base /${{github.event.repository.name}}/aula1/
 
       - name: Build Aula 2
-        run: npx slidev build aula2.md --out dist/aula2 --base /${{github.event.repository.name}}/aula2/
+        run: pnpm exec slidev build aula2.md --out dist/aula2 --base /${{github.event.repository.name}}/aula2/
 
       - name: Build Aula 3
-        run: npx slidev build aula3.md --out dist/aula3 --base /${{github.event.repository.name}}/aula3/
+        run: pnpm exec slidev build aula3.md --out dist/aula3 --base /${{github.event.repository.name}}/aula3/
 
       - name: Build Aula 4
-        run: npx slidev build aula4.md --out dist/aula4 --base /${{github.event.repository.name}}/aula4/
+        run: pnpm exec slidev build aula4.md --out dist/aula4 --base /${{github.event.repository.name}}/aula4/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
