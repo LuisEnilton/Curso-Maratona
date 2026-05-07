@@ -9,3 +9,5 @@ Escolha uma aula abaixo:
 <a href="./aula2/" target="_self">Aula 2 (Complexidade)</a>
 
 <a href="./aula3/" target="_self">Aula 3 (STL)</a>
+
+<a href="./aula4/" target="_self">Aula 4 (STL 2)</a>

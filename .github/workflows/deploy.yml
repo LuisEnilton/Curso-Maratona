@@ -52,6 +52,9 @@ jobs:
       - name: Build Aula 3
         run: npx slidev build aula3.md --out dist/aula3 --base /${{github.event.repository.name}}/aula3/
 
+      - name: Build Aula 4
+        run: npx slidev build aula4.md --out dist/aula4 --base /${{github.event.repository.name}}/aula4/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       

@@ -150,7 +150,7 @@ O primeiro elemento < do que X está uma posição atrás do primeiro elemento >
 
 Estrutura de dados não linear que consiste em nós conectados por arestas, dizemos que ela tem uma raiz e que cada nó tem seus filhos.
 
-É utilizada para resolver problemas que estruturas de dados linear demoram.
+É utilizada para resolver problemas que estruturas de dados linear demoram, são a base para containers associativos.
 
 ## Binária?
 
