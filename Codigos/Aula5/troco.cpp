@@ -9,34 +9,35 @@ signed main()
 
     int n, q;
     cin >> n >> q;
-
     vector<int> frente(n), verso(n);
     for (auto &x : frente)
         cin >> x;
     for (auto &x : verso)
         cin >> x;
 
-    vector<int> ps(n + 1); // array de diferencas
+    vector<int> soma_pref(n + 1);
 
     while (q--)
     {
+
         int l, r;
         cin >> l >> r;
         l--, r--;
-        ps[l]++;
-        ps[r + 1]--;
+        // até onde se propaga
+        soma_pref[l]++;
+        soma_pref[r + 1]--;
     }
 
     for (int i = 1; i <= n; i++)
     {
-        ps[i] += ps[i - 1];
+        soma_pref[i] += soma_pref[i - 1];
     }
 
     for (int i = 0; i < n; i++)
     {
-        cout << (ps[i] % 2 == 0 ? frente[i] : verso[i]) << " ";
+
+        cout << (soma_pref[i] % 2 == 0 ? frente[i] : verso[i]) << " ";
     }
     cout << endl;
-
     return 0;
 }
