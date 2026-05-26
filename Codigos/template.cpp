@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 #define endl '\n'
+#define int long long
+#define ALL(x) x.begin(), x.end()
+#define dbg(x) cout << #x << " " << x << endl;
+#define vi vector<int>
 using namespace std;
+
 signed main()
 {
     ios::sync_with_stdio(false);
