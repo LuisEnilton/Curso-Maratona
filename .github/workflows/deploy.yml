@@ -65,6 +65,9 @@ jobs:
       - name: Build Aula 5
         run: pnpm exec slidev build aula5.md --out dist/aula5 --base /${{github.event.repository.name}}/aula5/
 
+      - name: Build Aula 6
+        run: pnpm exec slidev build aula6.md --out dist/aula6 --base /${{github.event.repository.name}}/aula6/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
