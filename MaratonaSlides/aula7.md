@@ -245,7 +245,7 @@ Nesse grafo o custo do caminho $1-2-4$ é $5 + 6 = 11$.
 
 O grau de um vértice $u$ é a quantidade de vértices adjacentes a ele, ou seja, a quantidade de vértices que tem uma aresta para $u$.
 
-Muitos problemas podem ser resolvidos apenas analisando o grau dos vértices, por exemplo [Problema](https://codeforces.com/group/mzbGmMVMMp/contest/697261/problem/B)
+Muitos problemas podem ser resolvidos apenas analisando o grau dos vértices, por exemplo [Problema](https://codeforces.com/group/mzbGmMVMMp/contest/697261/problem/A)
 
 ## Grafo não Direcionado
 
