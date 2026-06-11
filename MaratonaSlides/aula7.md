@@ -2,7 +2,7 @@
 # try also 'default' to start simple
 theme: dracula
 
-title: Grafos
+title: Introdução a Grafos e DFS
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
@@ -21,7 +21,7 @@ mdc: true
 duration: 35min
 ---
 
-# Grafos
+# Introdução a Grafos e DFS
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
