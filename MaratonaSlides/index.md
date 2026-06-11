@@ -43,7 +43,7 @@ Selecione um dos módulos abaixo para acessar o material da aula:
     <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Guloso e Two Pointers</span>
   </a>
 
-  <a href="./aula6/" target="_self" class="flex flex-col items-center justify-center p-4 border border-gray-300 dark:border-gray-700 rounded-xl hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800 transition-all duration-200 !border-none !no-underline bg-gray-50 dark:bg-gray-900 shadow-sm hover:shadow-md">
+  <a href="./aula7/" target="_self" class="flex flex-col items-center justify-center p-4 border border-gray-300 dark:border-gray-700 rounded-xl hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-gray-800 transition-all duration-200 !border-none !no-underline bg-gray-50 dark:bg-gray-900 shadow-sm hover:shadow-md">
     <span class="font-semibold text-gray-800 dark:text-gray-200">Aula 7</span>
     <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 text-center">Introdução a Grafos e DFS</span>
   </a>
